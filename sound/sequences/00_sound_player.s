@@ -423,6 +423,9 @@ sound_ref .sound_general_custom_roy_hurt
 sound_ref .sound_general_custom_roy_hurt_giant
 sound_ref .sound_general_custom_roy_hurt_tiny
 sound_ref .sound_general_custom_kipp_spit
+sound_ref .sound_general_custom_snake_scream
+sound_ref .sound_general_custom_kyle_anger
+sound_ref .sound_general_custom_kyle_pain
 
 .sound_action_jump_default:
 chan_setbank 1
@@ -8231,4 +8234,22 @@ envelope_goto 3
   chan_setlayer 0, .layer_custom_normal
   chan_setbank 11
   chan_setinstr 9
+  chan_end
+
+.sound_general_custom_snake_scream:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 10
+  chan_end
+
+.sound_general_custom_kyle_anger:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 11
+  chan_end
+
+.sound_general_custom_kyle_pain:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 12
   chan_end

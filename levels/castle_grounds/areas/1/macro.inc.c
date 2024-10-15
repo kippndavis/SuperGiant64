@@ -24,5 +24,18 @@ const MacroObject castle_grounds_seg7_macro_objs[] = {
     MACRO_OBJECT               (/*preset*/ macro_fly_guy,                    /*yaw*/   0, /*pos*/ -3480,   891, -2120),
     MACRO_OBJECT               (/*preset*/ macro_fly_guy,                    /*yaw*/   0, /*pos*/ -3800,  1024,  -460),
     MACRO_OBJECT               (/*preset*/ macro_fly_guy,                    /*yaw*/   0, /*pos*/  6888,  2002, -5608),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/ -1766,   260,  3503),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/ -1566,   260,  3203),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/ -1066,   260,  3003),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/ -3480,   891, -2120),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/ -3800,  1024,  -460),
+    MACRO_OBJECT               (/*preset*/ macro_chuckya,                    /*yaw*/   0, /*pos*/  6888,  2002, -5608),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/ -1766,   260,  3503),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/ -1566,   260,  3203),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/ -1066,   260,  3003),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/ -3480,   891, -2120),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/ -3800,  1024,  -460),
+    MACRO_OBJECT               (/*preset*/ macro_pokey,                    /*yaw*/   0, /*pos*/  6888,  2002, -5608),
+
     MACRO_OBJECT_END(),
 };

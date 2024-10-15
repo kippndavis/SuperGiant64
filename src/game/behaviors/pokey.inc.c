@@ -143,7 +143,7 @@ static void pokey_act_uninitialized(void) {
     if (o->oDistanceToMario < o->oDrawingDistance) {
         ModelID16 partModel = MODEL_POKEY_HEAD;
         s32 i;
-
+        o->oDialogResponse = 0; // We use this to play a deathsound
         for (i = 0; i < POKEY_NUM_SEGMENTS; i++) {
             // Spawn body parts at y offsets 480, 360, 240, 120, 0
             // behavior param POKEY_PART_BP_HEAD = head, POKEY_PART_BP_LOWEST = lowest body part
@@ -183,6 +183,10 @@ static void pokey_act_wander(void) {
 
         if (o->oPokeyHeadWasKilled) {
             o->oForwardVel = 0.0f;
+            if (o->oDialogResponse == 0) {
+                o->oDialogResponse = 1;
+                cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_SNAKE_SCREAM);
+            }
         } else {
             o->oForwardVel = 5.0f;
 
@@ -280,7 +284,8 @@ static void pokey_act_unload_parts(void) {
 void bhv_pokey_update(void) {
     // PARTIAL_UPDATE
 
-    o->oDeathSound = SOUND_OBJ_POKEY_DEATH;
+    // o->oDeathSound = SOUND_GENERAL_CUSTOM_SNAKE_SCREAM;
+    o->oDeathSound = SOUND_GENERAL_CUSTOM_ROY_HURTSOUND_GIANT;
 
     switch (o->oAction) {
         case POKEY_ACT_UNINITIALIZED:

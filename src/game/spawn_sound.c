@@ -74,6 +74,9 @@ void cur_obj_play_sound_2(s32 soundMagic) {
         if (soundMagic == SOUND_OBJ_WHOMP) {
             queue_rumble_data(5, 80);
         }
+        if (soundMagic == SOUND_GENERAL_CUSTOM_KYLE_ANGER) {
+            queue_rumble_data(5, 80);
+        }
 #endif
     }
 }

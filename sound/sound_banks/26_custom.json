@@ -59,6 +59,21 @@
             "release_rate": 208,
             "envelope": "envelope0",
             "sound": "29_custom_kipp_spit"
+        },
+        "inst10": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "30_custom_snake_scream"
+        },
+        "inst11": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "31_custom_kyle_anger"
+        },
+        "inst12": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "32_custom_kyle_pain"
         }
     },
     "instrument_list": [
@@ -71,6 +86,9 @@
         "inst6",
         "inst7",
         "inst8",
-        "inst9"                
+        "inst9",
+        "inst10",
+        "inst11",
+        "inst12"            
     ]
 }

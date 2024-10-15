@@ -140,7 +140,7 @@ void whomp_jump(void) {
 
 void whomp_land(void) {
     if (o->oSubAction == 0 && o->oMoveFlags & OBJ_MOVE_LANDED) {
-        cur_obj_play_sound_2(SOUND_OBJ_WHOMP);
+        cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_KYLE_ANGER);
         cur_obj_shake_screen(SHAKE_POS_SMALL);
         o->oVelY = 0.0f;
         o->oSubAction++;
@@ -243,14 +243,14 @@ void whomp_die(void) {
             cur_obj_shake_screen(SHAKE_POS_SMALL);
             o->oPosY += 100.0f;
             spawn_default_star(180.0f, 3880.0f, 340.0f);
-            cur_obj_play_sound_2(SOUND_OBJ_KING_WHOMP_DEATH);
+            cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_KYLE_PAIN);
             o->oAction = 9;
         }
     } else {
         spawn_mist_particles_variable(0, 0, 100.0f);
         spawn_triangle_break_particles(20, MODEL_DIRT_ANIMATION, 3.0f, 4);
         cur_obj_shake_screen(SHAKE_POS_SMALL);
-        create_sound_spawner(SOUND_OBJ_THWOMP);
+        create_sound_spawner(SOUND_GENERAL_CUSTOM_KYLE_PAIN);
         obj_mark_for_deletion(o);
     }
 }

@@ -158,7 +158,7 @@ static void fly_guy_act_shoot_fire(void) {
                 obj_spit_fire(
                     /*relativePos*/ 0, 38, 20,
                     /*scale      */ 2.5f,
-                    /*model      */ MODEL_RED_FLAME_SHADOW,
+                    /*model      */ MODEL_BLUE_FLAME,
                     /*startSpeed */ 25.0f,
                     /*endSpeed   */ 20.0f,
                     /*movePitch  */ fireMovePitch);
