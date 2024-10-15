@@ -1551,24 +1551,13 @@ enum animIDsSwoop {
     #define GOOMBA_SIZE_TINY                                0x02
     #define GOOMBA_BP_SIZE_MASK                             0x03
     #define GOOMBA_BP_TRIPLET_FLAG_MASK                     0xFC
-#if defined(FLOOMBAS) && defined(INTRO_FLOOMBAS)
-    /* BPARAM3 */
-    #define GOOMBA_BP3_FLOOMBA_MIRRORED_STARTUP_ANIM        (1 << 7)
-#endif
     /* oAction */
     #define GOOMBA_ACT_WALK                                 0x0
     #define GOOMBA_ACT_ATTACKED_MARIO                       0x1
     #define GOOMBA_ACT_JUMP                                 0x2
-#if defined(FLOOMBAS) && defined(INTRO_FLOOMBAS)
-    #define FLOOMBA_ACT_STARTUP                             0x3
-#endif
     /* oAnimState */
     #define GOOMBA_ANIM_STATE_EYES_OPEN                     OBJ_BLINKING_ANIM_STATE_EYES_OPEN
     #define GOOMBA_ANIM_STATE_EYES_CLOSED                   OBJ_BLINKING_ANIM_STATE_EYES_CLOSED
-#ifdef FLOOMBAS
-    #define FLOOMBA_ANIM_STATE_EYES_OPEN                    (OBJ_BLINKING_ANIM_STATE_EYES_OPEN + 2)
-    #define FLOOMBA_ANIM_STATE_EYES_CLOSED                  (OBJ_BLINKING_ANIM_STATE_EYES_CLOSED + 2)
-#endif
     /* Animations */
     #define GOOMBA_ANIM_DEFAULT                             0x0
 

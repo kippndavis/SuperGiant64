@@ -177,12 +177,6 @@
  * config_objects.h
  */
 
-// Enable floombas if the intro floombas are enabled.
-#ifdef INTRO_FLOOMBAS
-    #undef FLOOMBAS
-    #define FLOOMBAS
-#endif
-
 
 /*****************
  * config_rom.h

@@ -28,15 +28,16 @@ struct GoombaProperties {
     u32 deathSound;
     s16 drawDistance;
     s8 damage;
+    u32 alertSound;
 };
 
 /**
  * Properties for regular, huge, and tiny goombas.
  */
-static struct GoombaProperties sGoombaProperties[] = {
-    { 1.5f, SOUND_OBJ_ENEMY_DEATH_HIGH, 4000, 1 },
-    { 3.5f, SOUND_OBJ_ENEMY_DEATH_LOW, 4000, 2 },
-    { 0.5f, SOUND_OBJ_ENEMY_DEATH_HIGH, 1500, 0 },
+static struct GoombaProperties sGoombaProperties[] = {  
+    { 1.5f, SOUND_GENERAL_CUSTOM_ROY_HURTSOUND, 4000, 1, SOUND_GENERAL_CUSTOM_ROY_HEY },
+    { 3.5f, SOUND_GENERAL_CUSTOM_ROY_HURTSOUND_GIANT, 4000, 2, SOUND_GENERAL_CUSTOM_ROY_HEY_GIANT },
+    { 0.5f, SOUND_GENERAL_CUSTOM_ROY_HURTSOUND_TINY, 1500, 0, SOUND_GENERAL_CUSTOM_ROY_HEY_TINY },
 };
 
 /**
@@ -85,13 +86,8 @@ void bhv_goomba_triplet_spawner_update(void) {
                 if (!(o->oBehParams & goombaFlag)) {
                     s16 dx = 500.0f * coss(angle);
                     s16 dz = 500.0f * sins(angle);
-#ifdef FLOOMBAS
-                    spawn_object_relative((o->oBehParams2ndByte & GOOMBA_TRIPLET_SPAWNER_BP_SIZE_MASK) | (goombaFlag >> 6),
-                                          dx, 0, dz, o, MODEL_GOOMBA, (o->oIsFloomba ? bhvFloomba : bhvGoomba));
-#else
                     spawn_object_relative((o->oBehParams2ndByte & GOOMBA_TRIPLET_SPAWNER_BP_SIZE_MASK) | (goombaFlag >> 6),
                                           dx, 0, dz, o, MODEL_GOOMBA, bhvGoomba);
-#endif
                 }
             }
 
@@ -119,26 +115,13 @@ void bhv_goomba_init(void) {
     o->oDamageOrCoinValue = sGoombaProperties[o->oGoombaSize].damage;
 
     o->oGravity = -8.0f / 3.0f * o->oGoombaScale;
-
-#ifdef FLOOMBAS
-    if (o->oIsFloomba) {
-        o->oAnimState += FLOOMBA_ANIM_STATE_EYES_OPEN;
-    }
-#ifdef INTRO_FLOOMBAS
-    if (o->oAction == FLOOMBA_ACT_STARTUP) {
-        o->oZoomPosZ = o->oPosZ;
-        o->oGoombaScale = 0.0f;
-        cur_obj_hide();
-    }
-#endif
-#endif
 }
 
 /**
  * Enter the jump action and set initial y velocity.
  */
 static void goomba_begin_jump(void) {
-    cur_obj_play_sound_2(SOUND_OBJ_GOOMBA_ALERT);
+    cur_obj_play_sound_2(sGoombaProperties[o->oGoombaSize].alertSound);
 
     o->oAction = GOOMBA_ACT_JUMP;
     o->oForwardVel = 0.0f;
@@ -266,37 +249,6 @@ static void goomba_act_jump(void) {
     }
 }
 
-#if defined(FLOOMBAS) && defined(INTRO_FLOOMBAS)
-static void floomba_act_startup(void) {
-    if (GET_BPARAM3(o->oBehParams) & GOOMBA_BP3_FLOOMBA_MIRRORED_STARTUP_ANIM) {
-        struct Animation *currAnim = o->header.gfx.animInfo.curAnim;
-        s16 frameDiff = ((currAnim->loopEnd - currAnim->loopStart) / 2);
-
-        o->header.gfx.animInfo.animFrameAccelAssist += (frameDiff << 16);
-        o->header.gfx.animInfo.animFrame += frameDiff;
-
-        NAND_BPARAM3(o->oBehParams, GOOMBA_BP3_FLOOMBA_MIRRORED_STARTUP_ANIM);
-    }
-
-    if (GET_BPARAM4(o->oBehParams)) {
-        o->oBehParams--;
-        return;
-    }
-    
-    cur_obj_unhide();
-
-    if ((GET_BPARAM3(o->oBehParams) & 0x7F) > o->oZoomCounter) {
-        f32 frac = (f32) o->oZoomCounter / (f32) (GET_BPARAM3(o->oBehParams) & 0x7F);
-        o->oPosZ = (o->oZoomPosZ - (300.0f * (1.0f - frac)));
-        o->oGoombaScale = (sGoombaProperties[o->oGoombaSize].scale * sqr(frac));
-        o->oZoomCounter++;
-    } else {
-        o->oPosZ = o->oZoomPosZ;
-        o->oGoombaScale = sGoombaProperties[o->oGoombaSize].scale;
-    }
-}
-#endif
-
 /**
  * Attack handler for when mario attacks a huge goomba with an attack that
  * doesn't kill it.
@@ -325,21 +277,11 @@ void bhv_goomba_update(void) {
 
         cur_obj_scale(o->oGoombaScale);
         obj_update_blinking(&o->oGoombaBlinkTimer, 30, 50, 5);
-#ifdef FLOOMBAS
-        if (o->oIsFloomba) {
-            o->oAnimState += FLOOMBA_ANIM_STATE_EYES_OPEN;
-        }
-#endif
         cur_obj_update_floor_and_walls();
 
         if (o->oGoombaScale == 0.0f || (animSpeed = (o->oForwardVel / o->oGoombaScale * 0.4f)) < 1.0f) {
             animSpeed = 1.0f;
         }
-#if defined(FLOOMBAS) && defined(INTRO_FLOOMBAS)
-        if (o->oAction == FLOOMBA_ACT_STARTUP) {
-            animSpeed = (GET_BPARAM1(o->oBehParams) / 16.0f);
-        }
-#endif
         cur_obj_init_animation_with_accel_and_sound(GOOMBA_ANIM_DEFAULT, animSpeed);
 
         switch (o->oAction) {
@@ -352,11 +294,6 @@ void bhv_goomba_update(void) {
             case GOOMBA_ACT_JUMP:
                 goomba_act_jump();
                 break;
-#if defined(FLOOMBAS) && defined(INTRO_FLOOMBAS)
-            case FLOOMBA_ACT_STARTUP:
-                floomba_act_startup();
-                break;
-#endif
         }
         if (obj_handle_attacks(&sGoombaHitbox, GOOMBA_ACT_ATTACKED_MARIO,
                                sGoombaAttackHandlers[o->oGoombaSize & 0x1])
@@ -367,10 +304,5 @@ void bhv_goomba_update(void) {
         cur_obj_move_standard(-78);
     } else {
         o->oAnimState = GOOMBA_ANIM_STATE_EYES_CLOSED;
-#ifdef FLOOMBAS
-        if (o->oIsFloomba) {
-            o->oAnimState += FLOOMBA_ANIM_STATE_EYES_OPEN;
-        }
-#endif
     }
 }

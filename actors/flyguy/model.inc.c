@@ -10,7 +10,7 @@ ALIGNED8 static const Texture flyguy_seg8_texture_0800E088[] = {
 
 // 0x0800F088
 ALIGNED8 static const Texture flyguy_seg8_texture_0800F088[] = {
-#include "actors/flyguy/flyguy_face.custom.rgba16.inc.c"
+#include "actors/flyguy/KippFace.rgba16.inc.c"
 };
 
 // 0x0800F888
@@ -21,6 +21,11 @@ ALIGNED8 static const Texture flyguy_seg8_texture_0800F888[] = {
 // Unreferenced light group
 
 // 0x080100A0
+// 0x080100A0
+static const Lights1 flyguy_seg8_lights_080100A0 = gdSPDefLights1(
+    0x00, 0x1f, 0x33,
+    0xff, 0xff, 0xff, 0x28, 0x28, 0x28
+);
 
 // 0x080100B8
 
@@ -183,8 +188,8 @@ static const Vtx flyguy_seg8_vertex_08010770[] = {
 
 // 0x08010840 - 0x08010968
 const Gfx flyguy_seg8_dl_08010840[] = {
-    gsSPLightColor(LIGHT_1, 0x27fccff),
-    gsSPLightColor(LIGHT_2, 0x1f33ff),
+    gsSPLight(&flyguy_seg8_lights_080100A0.l, 1),
+    gsSPLight(&flyguy_seg8_lights_080100A0.a, 2),
     gsSPVertex(flyguy_seg8_vertex_08010130, 16, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  3,  4,  5, 0x0),
     gsSP2Triangles( 6,  7,  8, 0x0,  6,  8,  9, 0x0),
@@ -210,8 +215,8 @@ const Gfx flyguy_seg8_dl_08010840[] = {
 
 // 0x08010968 - 0x08010A90
 const Gfx flyguy_seg8_dl_08010968[] = {
-    gsSPLightColor(LIGHT_1, 0x27fccff),
-    gsSPLightColor(LIGHT_2, 0x1f33ff),
+    gsSPLight(&flyguy_seg8_lights_080100A0.l, 1),
+    gsSPLight(&flyguy_seg8_lights_080100A0.a, 2),
     gsSPVertex(flyguy_seg8_vertex_08010460, 16, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  0,  2,  3, 0x0),
     gsSP2Triangles( 4,  5,  6, 0x0,  4,  6,  7, 0x0),
@@ -291,6 +296,12 @@ const Gfx flyguy_seg8_dl_08010B80[] = {
 // 0x08010C08
 
 // 0x08010C20
+
+static const Lights1 flyguy_seg8_lights_08010C20 = gdSPDefLights1(
+    0x58, 0x3f, 0x2d,  // Darker ambient color
+    0xa8, 0x7a, 0x55,  // Darker diffuse color
+    0x28, 0x28, 0x28   // Light direction
+);
 
 // 0x08010C38
 static const Vtx flyguy_seg8_vertex_08010C38[] = {
@@ -475,8 +486,8 @@ const Gfx flyguy_seg8_dl_08011420[] = {
     gsSPLightColor(LIGHT_2, 0xff),
     gsSPVertex(flyguy_seg8_vertex_08010CC8, 6, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  3,  4,  5, 0x0),
-    gsSPLightColor(LIGHT_1, 0xc40026ff),
-    gsSPLightColor(LIGHT_2, 0x620013ff),
+    gsSPLight(&flyguy_seg8_lights_08010C20.l, 1),
+    gsSPLight(&flyguy_seg8_lights_08010C20.a, 2),
     gsSPVertex(flyguy_seg8_vertex_08010D28, 14, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  1,  3,  4, 0x0),
     gsSP2Triangles( 1,  5,  3, 0x0,  1,  4,  2, 0x0),

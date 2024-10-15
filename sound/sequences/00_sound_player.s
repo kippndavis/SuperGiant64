@@ -415,6 +415,14 @@ sound_ref .sound_action_jump_default
 sound_ref .sound_action_jump_default
 sound_ref .sound_action_jump_default
 sound_ref .sound_action_jump_default
+sound_ref .sound_general_custom_kipp_hurt
+sound_ref .sound_general_custom_roy_hey
+sound_ref .sound_general_custom_roy_hey_giant
+sound_ref .sound_general_custom_roy_hey_tiny
+sound_ref .sound_general_custom_roy_hurt
+sound_ref .sound_general_custom_roy_hurt_giant
+sound_ref .sound_general_custom_roy_hurt_tiny
+sound_ref .sound_general_custom_kipp_spit
 
 .sound_action_jump_default:
 chan_setbank 1
@@ -3326,6 +3334,11 @@ layer_note0 29, 0x60, 115, 20
 layer_end
 
 .sound_general_bobomb_explosion:
+chan_setlayer 0, .layer_custom_normal
+chan_setbank 11
+chan_setinstr 1
+chan_setval 20
+chan_call .delay
 chan_setbank 4
 chan_setinstr 15
 chan_setenvelope .envelope_33EC
@@ -7359,15 +7372,8 @@ chan_setlayer 1, .layer_2E3D
 chan_setlayer 2, .layer_2E34
 chan_setval 70
 chan_call .delay
-chan_setbank 10
-chan_setinstr 8
-chan_setval 0x7f
-chan_call .delay
-chan_setval 0x7f
-chan_call .delay
-chan_setval 0x4
-chan_call .delay
-chan_setvibratoextent 0xff
+chan_setbank 11
+chan_setinstr 0
 chan_end
 
 .layer_2E28:
@@ -8174,3 +8180,55 @@ envelope_line 1000 32700
 envelope_line 10 16000
 envelope_line 200 32760
 envelope_goto 3
+
+.layer_custom_normal:
+  layer_note1 39, 0x96, 110
+  layer_end
+
+.sound_general_custom_kipp_hurt:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 2
+  chan_end
+
+.sound_general_custom_roy_hey:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 3
+  chan_end
+
+.sound_general_custom_roy_hey_giant:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 4
+  chan_end
+
+.sound_general_custom_roy_hey_tiny:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 5
+  chan_end
+
+.sound_general_custom_roy_hurt:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 6
+  chan_end
+
+.sound_general_custom_roy_hurt_giant:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 7
+  chan_end
+
+.sound_general_custom_roy_hurt_tiny:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 8
+  chan_end
+
+.sound_general_custom_kipp_spit:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 9
+  chan_end

@@ -1,0 +1,76 @@
+{
+    "date": "1996-02-14",
+    "sample_bank": "sfx_custom",
+    "envelopes": {
+        "envelope0": [
+            [2, 32700],
+            [1, 32700],
+            [32700, 29430],
+            "hang"
+        ]
+    },
+    "instruments": {
+        "inst0": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "20_custom_giant64_intro"
+        },
+        "inst1": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "21_custom_mike_hurt"
+        },
+        "inst2": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "22_custom_kipp_hurt"
+        },
+        "inst3": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "23_custom_roy_hey"
+        },
+        "inst4": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "24_custom_roy_hey_giant"
+        },
+        "inst5": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "25_custom_roy_hey_tiny"
+        },
+        "inst6": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "26_custom_roy_hurt"
+        },
+        "inst7": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "27_custom_roy_hurt_giant"
+        },
+        "inst8": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "28_custom_roy_hurt_tiny"
+        },        
+        "inst9": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "29_custom_kipp_spit"
+        }
+    },
+    "instrument_list": [
+        "inst0",
+        "inst1",
+        "inst2",
+        "inst3",
+        "inst4",
+        "inst5",
+        "inst6",
+        "inst7",
+        "inst8",
+        "inst9"                
+    ]
+}

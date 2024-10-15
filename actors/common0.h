@@ -37,6 +37,7 @@ extern const struct Animation *const bobomb_seg8_anims_0802396C[];
 // bowling_ball
 extern const GeoLayout bowling_ball_geo[];
 extern const GeoLayout bowling_ball_track_geo[];
+extern const Gfx bowling_ball_dl[];
 
 // breakable_box
 extern const GeoLayout breakable_box_geo[];
@@ -146,10 +147,6 @@ extern const Gfx goomba_seg8_dl_0801B560[];
 extern const Gfx goomba_seg8_dl_0801B5A0[];
 extern const Gfx goomba_seg8_dl_0801B5C8[];
 extern const Gfx goomba_seg8_dl_0801B5F0[];
-#ifdef FLOOMBAS
-extern const Gfx floomba_seg8_dl_face[];
-extern const Gfx floomba_seg8_dl_blink[];
-#endif
 extern const Gfx goomba_seg8_dl_0801B658[];
 extern const Gfx goomba_seg8_dl_0801B690[];
 extern const Gfx goomba_seg8_dl_0801CE20[];

@@ -5,12 +5,32 @@
 // Unreferenced light group
 
 // 0x080194D0
+static const Lights1 goomba_seg8_lights_080194D0 = gdSPDefLights1(
+    /*
+    0x15, 0x0b, 0x04,
+    0x54, 0x2e, 0x10, 0x28, 0x28, 0x28
+    */
+    0x36, 0x28, 0x1b,    // Ambient color (0.2 * Diffuse values)
+    0xb4, 0x80, 0x5a,    // Diffuse color (matches your requested color)
+    0x28, 0x28, 0x28     // Light direction (unchanged)
+);
 
 // 0x080194E8
+static const Lights1 goomba_seg8_lights_080194E8 = gdSPDefLights1(
+    0x36, 0x28, 0x1b,    // Ambient color (0.2 * Diffuse values)
+    0xb4, 0x80, 0x5a,    // Diffuse color (matches your requested color)
+    0x28, 0x28, 0x28     // Light direction (unchanged)
+);
 
 // 0x08019500
 
 // 0x08019518
+
+static const Lights1 goomba_seg8_lights_08019518 = gdSPDefLights1(
+    0x36, 0x28, 0x1b,    // Ambient color (0.2 * Diffuse values)
+    0xb4, 0x80, 0x5a,    // Diffuse color (matches your requested color)
+    0x28, 0x28, 0x28     // Light direction (unchanged)
+);
 
 // 0x08019530
 ALIGNED8 static const Texture goomba_seg8_texture_08019530[] = {
@@ -19,23 +39,13 @@ ALIGNED8 static const Texture goomba_seg8_texture_08019530[] = {
 
 // 0x08019D30
 ALIGNED8 static const Texture goomba_seg8_texture_08019D30[] = {
-#include "actors/goomba/goomba_face.rgba16.inc.c"
+#include "actors/goomba/roy_face.rgba16.inc.c"
 };
 
 // 0x0801A530
 ALIGNED8 static const Texture goomba_seg8_texture_0801A530[] = {
-#include "actors/goomba/goomba_face_blink.rgba16.inc.c"
+#include "actors/goomba/roy_face_blink_die.rgba16.inc.c"
 };
-
-#ifdef FLOOMBAS
-ALIGNED8 static const Texture floomba_seg8_texture_face[] = {
-#include "actors/goomba/custom_floomba_face.rgba16.inc.c"
-};
-
-ALIGNED8 static const Texture floomba_seg8_texture_blink[] = {
-#include "actors/goomba/custom_floomba_face_blink.rgba16.inc.c"
-};
-#endif
 
 // 0x0801AD30
 
@@ -241,24 +251,6 @@ const Gfx goomba_seg8_dl_0801B5F0[] = {
     gsDPLoadBlock(G_TX_LOADTILE, 0, 0, 32 * 32 - 1, CALC_DXT(32, G_IM_SIZ_16b_BYTES)),
     gsSPBranchList(goomba_seg8_dl_0801B5A0),
 };
-
-#ifdef FLOOMBAS
-const Gfx floomba_seg8_dl_face[] = {
-    gsSPDisplayList(goomba_seg8_dl_0801B560),
-    gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, floomba_seg8_texture_face),
-    gsDPLoadSync(),
-    gsDPLoadBlock(G_TX_LOADTILE, 0, 0, 32 * 32 - 1, CALC_DXT(32, G_IM_SIZ_16b_BYTES)),
-    gsSPBranchList(goomba_seg8_dl_0801B5A0),
-};
-
-const Gfx floomba_seg8_dl_blink[] = {
-    gsSPDisplayList(goomba_seg8_dl_0801B560),
-    gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, floomba_seg8_texture_blink),
-    gsDPLoadSync(),
-    gsDPLoadBlock(G_TX_LOADTILE, 0, 0, 32 * 32 - 1, CALC_DXT(32, G_IM_SIZ_16b_BYTES)),
-    gsSPBranchList(goomba_seg8_dl_0801B5A0),
-};
-#endif
 
 // 0x0801B618
 static const Vtx goomba_seg8_vertex_0801B618[] = {
@@ -772,8 +764,8 @@ static const Vtx goomba_seg8_vertex_0801CDF0[] = {
 
 // 0x0801CE20 - 0x0801CF78
 const Gfx goomba_seg8_dl_0801CE20[] = {
-    gsSPLightColor(LIGHT_1, 0x542e10ff),
-    gsSPLightColor(LIGHT_2, 0x150b04ff),
+    gsSPLight(&goomba_seg8_lights_080194D0.l, 1),
+    gsSPLight(&goomba_seg8_lights_080194D0.a, 2),
     gsSPVertex(goomba_seg8_vertex_0801B700, 16, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  0,  2,  3, 0x0),
     gsSP2Triangles( 4,  5,  6, 0x0,  4,  6,  7, 0x0),
@@ -801,8 +793,8 @@ const Gfx goomba_seg8_dl_0801CE20[] = {
 
 // 0x0801CF78 - 0x0801D0D0
 const Gfx goomba_seg8_dl_0801CF78[] = {
-    gsSPLightColor(LIGHT_1, 0x613413ff),
-    gsSPLightColor(LIGHT_2, 0x180d04ff),
+    gsSPLight(&goomba_seg8_lights_080194E8.l, 1),
+    gsSPLight(&goomba_seg8_lights_080194E8.a, 2),
     gsSPVertex(goomba_seg8_vertex_0801BA50, 15, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  0,  2,  3, 0x0),
     gsSP2Triangles( 1,  4,  5, 0x0,  1,  5,  2, 0x0),
@@ -830,8 +822,8 @@ const Gfx goomba_seg8_dl_0801CF78[] = {
 
 // 0x0801D0D0 - 0x0801D360
 const Gfx goomba_seg8_dl_0801D0D0[] = {
-    gsSPLightColor(LIGHT_1, 0x774220ff),
-    gsSPLightColor(LIGHT_2, 0x1d1008ff),
+    gsSPLight(&goomba_seg8_lights_08019518.l, 1),
+    gsSPLight(&goomba_seg8_lights_08019518.a, 2),
     gsSPVertex(goomba_seg8_vertex_0801BDC0, 16, 0),
     gsSP2Triangles( 0,  1,  2, 0x0,  0,  2,  3, 0x0),
     gsSP2Triangles( 4,  5,  6, 0x0,  4,  6,  7, 0x0),
