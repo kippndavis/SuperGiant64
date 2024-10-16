@@ -253,10 +253,15 @@ extern const Gfx star_seg3_dl_body[];
 extern const Gfx star_seg3_sub_dl_eyes[];
 extern const Gfx star_seg3_dl_eyes[];
 
+extern const Gfx PowerPaycheck_SketchUp_mesh[];
+
 // transparent_star
 extern const GeoLayout transparent_star_geo[];
 extern const Gfx transparent_star_seg3_sub_dl_body[];
 extern const Gfx transparent_star_seg3_dl_body[];
+
+extern const Gfx PowerPaycheckTaken_SketchUp_mesh[];
+extern const GeoLayout opaque_star_geo[];
 
 // tree
 extern const GeoLayout bubbly_tree_geo[];

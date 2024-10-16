@@ -127,7 +127,7 @@ void bhv_act_selector_init(void) {
             selectorModelIDs[sVisibleStars] = MODEL_STAR;
             i++;
         } else { // Star has not been collected
-            selectorModelIDs[sVisibleStars] = MODEL_TRANSPARENT_STAR;
+            selectorModelIDs[sVisibleStars] = MODEL_OPAQUE_STAR;
             // If this is the first star that has not been collected, set
             // the default selection to this star.
             if (sInitSelectedActNum == 0) {
@@ -140,7 +140,7 @@ void bhv_act_selector_init(void) {
 
     // If the stars have been collected in order so far, show the next star.
     if (sVisibleStars == sObtainedStars && sVisibleStars != 6) {
-        selectorModelIDs[sVisibleStars] = MODEL_TRANSPARENT_STAR;
+        selectorModelIDs[sVisibleStars] = MODEL_OPAQUE_STAR;
         sInitSelectedActNum = sVisibleStars + 1;
         sSelectableStarIndex = sVisibleStars;
         sVisibleStars++;
@@ -372,7 +372,7 @@ void print_act_selector_strings(void) {
         print_menu_generic_string(get_str_x_pos_from_center(ACT_NAME_X, selectedActName, 8.0f), 81, selectedActName);
 #else
         actNameX = get_str_x_pos_from_center(ACT_NAME_X, selectedActName, 8.0f);
-        print_menu_generic_string(actNameX, 81, selectedActName);
+        print_menu_generic_string(actNameX, 93, selectedActName);
 #endif
     }
 
@@ -382,7 +382,7 @@ void print_act_selector_strings(void) {
 #if MULTILANG
         print_menu_generic_string(143 - sVisibleStars * 15 + i * 30, 38, starNumbers);
 #else
-        print_menu_generic_string(139 - sVisibleStars * 17 + i * 34, 38, starNumbers);
+        print_menu_generic_string(139 - sVisibleStars * 17 + i * 34, 30, starNumbers);
 #endif
     }
 

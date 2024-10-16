@@ -83,33 +83,37 @@ ALIGNED8 static const Texture inside_castle_seg7_texture_light_radial_inverse[] 
 };
 
 // 0x0700A800 - 0x0700B800
+
+// Bob-omb Battlefield Painting
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700A800[] = {
-#include "levels/castle_inside/17.rgba16.inc.c"
+#include "levels/castle_inside/VeggieValleyPainting.rgba16.inc.c"
 };
 
 // 0x0700B800 - 0x0700C800
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700B800[] = {
-#include "levels/castle_inside/18.rgba16.inc.c"
+#include "levels/castle_inside/VeggieValleyPainting2.rgba16.inc.c"
 };
 
+// Cool Cool Mountain Painting
 // 0x0700C800 - 0x0700D800
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700C800[] = {
-#include "levels/castle_inside/19.rgba16.inc.c"
+#include "levels/castle_inside/FrostyFreezer.rgba16.inc.c"
 };
 
 // 0x0700D800 - 0x0700E800
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700D800[] = {
-#include "levels/castle_inside/20.rgba16.inc.c"
+#include "levels/castle_inside/FrostyFreezer2.rgba16.inc.c"
 };
 
+// Whomp's Fortress Painting
 // 0x0700E800 - 0x0700F800
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700E800[] = {
-#include "levels/castle_inside/21.rgba16.inc.c"
+#include "levels/castle_inside/ButchersBastion.rgba16.inc.c"
 };
 
 // 0x0700F800 - 0x07010800
 ALIGNED8 static const Texture inside_castle_seg7_texture_0700F800[] = {
-#include "levels/castle_inside/22.rgba16.inc.c"
+#include "levels/castle_inside/ButchersBastion2.rgba16.inc.c"
 };
 
 #ifdef VERSION_JP
@@ -124,25 +128,27 @@ ALIGNED8 static const Texture inside_castle_seg7_texture_07011800[] = {
 };
 
 #else
+// Jolly Roger Bay Painting
 // 0x07010800 - 0x07011800
 ALIGNED8 static const Texture inside_castle_seg7_texture_07010800[] = {
-#include "levels/castle_inside/23_us.rgba16.inc.c"
+#include "levels/castle_inside/StoreroomSummit.rgba16.inc.c"
 };
 
 // 0x07011800 - 0x0701200
 ALIGNED8 static const Texture inside_castle_seg7_texture_07011800[] = {
-#include "levels/castle_inside/24_us.rgba16.inc.c"
+#include "levels/castle_inside/StoreroomSummit2.rgba16.inc.c"
 };
 #endif
 
+
 // 0x07012800 - 0x07013800
 ALIGNED8 static const Texture inside_castle_seg7_texture_07012800[] = {
-#include "levels/castle_inside/25.rgba16.inc.c"
+#include "levels/castle_inside/AisleOfAdventure2.rgba16.inc.c"
 };
 
 // 0x07013800 - 0x07014800
 ALIGNED8 static const Texture inside_castle_seg7_texture_07013800[] = {
-#include "levels/castle_inside/26.rgba16.inc.c"
+#include "levels/castle_inside/AisleOfAdventure.rgba16.inc.c"
 };
 
 // 0x07014800 - 0x07015800
