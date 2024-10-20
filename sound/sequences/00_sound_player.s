@@ -426,6 +426,17 @@ sound_ref .sound_general_custom_kipp_spit
 sound_ref .sound_general_custom_snake_scream
 sound_ref .sound_general_custom_kyle_anger
 sound_ref .sound_general_custom_kyle_pain
+sound_ref .sound_general_custom_chaching
+sound_ref .sound_general_custom_get_me_out
+sound_ref .sound_general_custom_greedy_bastard
+sound_ref .sound_general_custom_the_fuck_you_been
+sound_ref .sound_general_custom_shithead
+sound_ref .sound_general_custom_who_wants_some_dough
+sound_ref .sound_general_custom_what_about_me
+sound_ref .sound_general_custom_somebody_get_me
+sound_ref .sound_general_custom_some_money_over_here
+sound_ref .sound_general_custom_get_some_of_this
+sound_ref .sound_general_custom_ey_over_here
 
 .sound_action_jump_default:
 chan_setbank 1
@@ -2760,7 +2771,8 @@ layer_end
 #endif
 
 .channel38_table:
-sound_ref .sound_general_activate_cap_switch
+//sound_ref .sound_general_activate_cap_switch
+sound_ref .sound_general_custom_coin_clink_single
 sound_ref .sound_menu_enter_hole
 sound_ref .sound_menu_enter_hole
 sound_ref .sound_general_flame_out
@@ -2888,6 +2900,8 @@ sound_ref .sound_general_boing1
 sound_ref .sound_general_boing2
 sound_ref .sound_general_yoshi_walk
 sound_ref .sound_general_enemy_alert1
+sound_ref .sound_general_custom_coin_clink_single
+sound_ref .sound_general_custom_coin_clink_fall
 
 .sound_general_activate_cap_switch:
 chan_setbank 5
@@ -8252,4 +8266,82 @@ envelope_goto 3
   chan_setlayer 0, .layer_custom_normal
   chan_setbank 11
   chan_setinstr 12
+  chan_end
+
+.sound_general_custom_chaching:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 13
+  chan_end
+
+.sound_general_custom_coin_clink_single:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 14
+  chan_end
+
+.sound_general_custom_coin_clink_fall:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 15
+  chan_end
+
+.sound_general_custom_get_me_out:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 16
+  chan_end
+
+.sound_general_custom_greedy_bastard:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 17
+  chan_end
+
+.sound_general_custom_the_fuck_you_been:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 18
+  chan_end
+
+.sound_general_custom_shithead:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 19
+  chan_end
+
+.sound_general_custom_who_wants_some_dough:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 20
+  chan_end
+
+.sound_general_custom_what_about_me:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 21
+  chan_end
+
+.sound_general_custom_somebody_get_me:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 22
+  chan_end
+
+.sound_general_custom_some_money_over_here:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 23
+  chan_end
+
+.sound_general_custom_get_some_of_this:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 24
+  chan_end
+
+.sound_general_custom_ey_over_here:
+  chan_setlayer 0, .layer_custom_normal
+  chan_setbank 11
+  chan_setinstr 25
   chan_end

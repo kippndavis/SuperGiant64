@@ -948,9 +948,9 @@ void update_hud_values(void) {
             if (gGlobalTimer & 1) {
                 u32 coinSound;
                 if (gMarioState->action & (ACT_FLAG_SWIMMING | ACT_FLAG_METAL_WATER)) {
-                    coinSound = SOUND_GENERAL_COIN_WATER;
+                    coinSound = SOUND_GENERAL_CUSTOM_COIN_CLINK_SINGLE;
                 } else {
-                    coinSound = SOUND_GENERAL_COIN;
+                    coinSound = SOUND_GENERAL_CUSTOM_COIN_CLINK_SINGLE;
                 }
 
                 gHudDisplay.coins++;

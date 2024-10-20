@@ -586,6 +586,24 @@ s32 act_debug_free_move(struct MarioState *m) {
     return FALSE;
 }
 
+void play_money_collected_sound(struct MarioState *m) {
+    s32 randomIndex = random_u16() % 4;
+    switch (randomIndex) {
+        case 0:
+            play_sound(SOUND_GENERAL_CUSTOM_GET_ME_OUT, m->marioObj->header.gfx.cameraToObject);
+            break;
+        case 1:
+            play_sound(SOUND_GENERAL_CUSTOM_GREEDY_BASTARD, m->marioObj->header.gfx.cameraToObject);
+            break;
+        case 2:
+            play_sound(SOUND_GENERAL_CUSTOM_THE_FUCK_YOU_BEEN, m->marioObj->header.gfx.cameraToObject);
+            break;
+        case 3:
+            play_sound(SOUND_GENERAL_CUSTOM_SHITHEAD, m->marioObj->header.gfx.cameraToObject);
+            break;
+    }
+}
+
 void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
     struct Object *celebStar = NULL;
 
@@ -619,7 +637,11 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
                 play_sound(SOUND_MARIO_HERE_WE_GO, m->marioObj->header.gfx.cameraToObject);
                 break;
 
-            case 80:
+            case 70:
+                play_money_collected_sound(m);
+                break;
+
+            case 94:
                 if (!(m->actionArg & 1)) {
                     level_trigger_warp(m, WARP_OP_STAR_EXIT);
                 } else {
@@ -1079,7 +1101,7 @@ s32 act_exit_airborne(struct MarioState *m) {
     }
     // rotate him to face away from the entrance
     m->marioObj->header.gfx.angle[1] += 0x8000;
-    m->particleFlags |= PARTICLE_SPARKLES;
+    m->particleFlags |= PARTICLE_MONEY_ANIMATION;
     return FALSE;
 }
 
@@ -1093,7 +1115,7 @@ s32 act_falling_exit_airborne(struct MarioState *m) {
     }
     // rotate Mario to face away from the entrance
     m->marioObj->header.gfx.angle[1] += 0x8000;
-    m->particleFlags |= PARTICLE_SPARKLES;
+    m->particleFlags |= PARTICLE_MONEY_ANIMATION;
     return FALSE;
 }
 

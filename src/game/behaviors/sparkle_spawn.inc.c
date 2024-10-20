@@ -17,3 +17,14 @@ void bhv_sparkle_spawn_loop(void) {
         obj_mark_for_deletion(o);
     }
 }
+
+void bhv_money_spawn_loop(void) {
+    struct Object *money = try_to_spawn_object(0, 1.0f, o, MODEL_MONEY_ANIMATION, bhvMoney);
+    if (money != NULL) {
+        obj_translate_xyz_random(money, 90.0f);
+        obj_scale_random(money, 1.0f, 0.0f);
+    }
+    if (o->oTimer > 1) {
+        obj_mark_for_deletion(o);
+    }
+}

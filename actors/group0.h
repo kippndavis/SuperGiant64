@@ -273,6 +273,17 @@ extern const Gfx sparkles_seg4_dl_0402A540[];
 extern const Gfx sparkles_seg4_dl_0402A558[];
 extern const Gfx sparkles_seg4_dl_0402A570[];
 
+// cent_animation
+extern const GeoLayout cent_animation_geo[];
+extern const Gfx cent_animation_seg4_dl[];
+extern const Gfx cent_animation_seg4_dl_1[];
+extern const Gfx cent_animation_seg4_dl_2[];
+extern const Gfx cent_animation_seg4_dl_3[];
+extern const Gfx cent_animation_seg4_dl_4[];
+extern const Gfx cent_animation_seg4_dl_5[];
+extern const Gfx cent_animation_seg4_dl_6[];
+extern const Gfx cent_animation_seg4_dl_7[];
+
 // sparkle_animation
 extern const GeoLayout sparkles_animation_geo[];
 extern const Gfx sparkles_animation_seg4_dl_04035288[];
@@ -281,6 +292,27 @@ extern const Gfx sparkles_animation_seg4_dl_04035318[];
 extern const Gfx sparkles_animation_seg4_dl_04035330[];
 extern const Gfx sparkles_animation_seg4_dl_04035348[];
 extern const Gfx sparkles_animation_seg4_dl_04035360[];
+
+// money animation
+extern const GeoLayout money_animation_geo[];
+extern const Gfx money_animation_seg4_dl_1[];
+extern const Gfx money_animation_seg4_dl_2[];
+extern const Gfx money_animation_seg4_dl_3[];
+extern const Gfx money_animation_seg4_dl_4[];
+extern const Gfx money_animation_seg4_dl_5[];
+extern const Gfx money_animation_seg4_dl_6[];
+extern const Gfx money_animation_seg4_dl_7[];
+extern const Gfx money_animation_seg4_dl_8[];
+extern const Gfx money_animation_seg4_dl_9[];
+extern const Gfx money_animation_seg4_dl_10[];
+extern const Gfx money_animation_seg4_dl_11[];
+extern const Gfx money_animation_seg4_dl_12[];
+extern const Gfx money_animation_seg4_dl_13[];
+extern const Gfx money_animation_seg4_dl_14[];
+extern const Gfx money_animation_seg4_dl_15[];
+extern const Gfx money_animation_seg4_dl_16[];
+extern const Gfx money_animation_seg4_dl_17[];
+extern const Gfx money_animation_seg4_dl_18[];
 
 // small water splash
 extern const GeoLayout small_water_splash_geo[];
@@ -330,5 +362,7 @@ extern const Gfx white_particle_small_dl_begin[];
 extern const Gfx white_particle_small_dl_end[];
 extern const Gfx white_particle_small_dl[];
 extern const Gfx white_particle_small_unused_dl[];
+
+#include "PowerPaycheck/header.h"
 
 #endif

@@ -26,7 +26,13 @@
 
 #include "sparkle_animation/model.inc.c"
 
+#include "money_animation/model.inc.c"
+
+#include "cent_animation/model.inc.c"
+
 #ifdef S2DEX_TEXT_ENGINE
 #include "src/s2d_engine/s2d_config.h"
 #include FONT_C_FILE
 #endif
+
+#include "PowerPaycheck/model.inc.c"

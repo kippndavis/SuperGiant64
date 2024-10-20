@@ -24,6 +24,11 @@ extern const Gfx butterfly_seg3_dl_03005408[];
 extern const Gfx butterfly_seg3_dl_030054A0[];
 extern const struct Animation *const butterfly_seg3_anims_030056B0[];
 
+// money coins
+extern const Gfx PennyCoin_SketchUp_mesh[];
+extern const Gfx PennyCoinRed_SketchUp_mesh[];
+extern const Gfx NickelCoin_SketchUp_mesh[];
+
 // coin
 extern const GeoLayout yellow_coin_geo[];
 extern const GeoLayout yellow_coin_no_shadow_geo[];

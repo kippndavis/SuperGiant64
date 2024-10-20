@@ -74,7 +74,72 @@
             "release_rate": 208,
             "envelope": "envelope0",
             "sound": "32_custom_kyle_pain"
-        }
+        },
+        "inst13": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "33_custom_chaching"
+        },
+        "inst14": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "34_custom_coin_clink_single"
+        },
+        "inst15": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "35_custom_coin_clink_fall"
+        },
+        "inst16": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "36_custom_get_me_out"
+        },
+        "inst17": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "37_custom_greedy_bastard"
+        },
+        "inst18": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "38_custom_the_fuck_you_been"
+        },
+        "inst19": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "39_custom_shithead"
+        },
+        "inst20": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "40_custom_who_wants_some_dough"
+        },
+        "inst21": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "41_custom_what_about_me"
+        },
+        "inst22": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "42_custom_somebody_get_me"
+        },
+        "inst23": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "43_custom_some_money_over_here"
+        },
+        "inst24": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "44_custom_get_some_of_this"
+        },
+        "inst25": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "45_custom_ey_over_here"
+        } 
     },
     "instrument_list": [
         "inst0",
@@ -89,6 +154,19 @@
         "inst9",
         "inst10",
         "inst11",
-        "inst12"            
+        "inst12",
+        "inst13",
+        "inst14",
+        "inst15",
+        "inst16",
+        "inst17",
+        "inst18",
+        "inst19",
+        "inst20",
+        "inst21",
+        "inst22",
+        "inst23",
+        "inst24",
+        "inst25"       
     ]
 }

@@ -156,24 +156,20 @@ const GeoLayout silver_coin_no_shadow_geo[] = {
 const GeoLayout yellow_coin_geo[] = {
    GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 50),
    GEO_OPEN_NODE(),
-      GEO_SWITCH_CASE(8, geo_switch_anim_state),
+      GEO_TRANSLATE_NODE(0, 0, 51, -5),
       GEO_OPEN_NODE(),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_front),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_front),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_tilt_right),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_tilt_right),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_side),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_side),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_tilt_left),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_yellow_tilt_left),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, PennyCoin_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
       GEO_CLOSE_NODE(),
    GEO_CLOSE_NODE(),
    GEO_END(),
 };
 
-// 0x160001A0
-const GeoLayout yellow_coin_no_shadow_geo[] = {
-   GEO_NODE_START(),
+/*
+const GeoLayout yellow_coin_geo[] = {
+   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 50),
    GEO_OPEN_NODE(),
       GEO_SWITCH_CASE(8, geo_switch_anim_state),
       GEO_OPEN_NODE(),
@@ -189,8 +185,38 @@ const GeoLayout yellow_coin_no_shadow_geo[] = {
    GEO_CLOSE_NODE(),
    GEO_END(),
 };
+*/
+
+// 0x160001A0
+const GeoLayout yellow_coin_no_shadow_geo[] = {
+   GEO_NODE_START(),
+   GEO_OPEN_NODE(),
+      GEO_TRANSLATE_NODE(0, 0, 51, -5),
+      GEO_OPEN_NODE(),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, PennyCoin_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
+      GEO_CLOSE_NODE(),
+   GEO_CLOSE_NODE(),
+   GEO_END(),
+};
 
 // 0x16000200
+const GeoLayout blue_coin_geo[] = {
+   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 80),
+   GEO_OPEN_NODE(),
+      GEO_TRANSLATE_NODE(0, 0, 63, -5),
+      GEO_OPEN_NODE(),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, NickelCoin_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
+      GEO_CLOSE_NODE(),
+   GEO_CLOSE_NODE(),
+   GEO_END(),
+};
+/*
 const GeoLayout blue_coin_geo[] = {
    GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 80),
    GEO_OPEN_NODE(),
@@ -208,8 +234,23 @@ const GeoLayout blue_coin_geo[] = {
    GEO_CLOSE_NODE(),
    GEO_END(),
 };
+*/
 
 // 0x16000264
+const GeoLayout blue_coin_no_shadow_geo[] = {
+   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 50),
+   GEO_OPEN_NODE(),
+      GEO_TRANSLATE_NODE(0, 0, 63, -5),
+      GEO_OPEN_NODE(),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, NickelCoin_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
+      GEO_CLOSE_NODE(),
+   GEO_CLOSE_NODE(),
+   GEO_END(),
+};
+/*
 const GeoLayout blue_coin_no_shadow_geo[] = {
    GEO_NODE_START(),
    GEO_OPEN_NODE(),
@@ -227,8 +268,24 @@ const GeoLayout blue_coin_no_shadow_geo[] = {
    GEO_CLOSE_NODE(),
    GEO_END(),
 };
+*/
 
 // 0x160002C4
+const GeoLayout red_coin_geo[] = {
+   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 50),
+   GEO_OPEN_NODE(),
+      GEO_TRANSLATE_NODE(0, 0, 60, -5),
+      GEO_OPEN_NODE(),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, PennyCoinRed_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
+      GEO_CLOSE_NODE(),
+   GEO_CLOSE_NODE(),
+   GEO_END(),
+};
+
+/*
 const GeoLayout red_coin_geo[] = {
    GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xB4, 80),
    GEO_OPEN_NODE(),
@@ -246,21 +303,18 @@ const GeoLayout red_coin_geo[] = {
    GEO_CLOSE_NODE(),
    GEO_END(),
 };
+*/
 
 // 0x16000328
 const GeoLayout red_coin_no_shadow_geo[] = {
    GEO_NODE_START(),
    GEO_OPEN_NODE(),
-      GEO_SWITCH_CASE(8, geo_switch_anim_state),
+      GEO_TRANSLATE_NODE(0, 0, 60, -5),
       GEO_OPEN_NODE(),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_front),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_front),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_tilt_right),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_tilt_right),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_side),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_side),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_tilt_left),
-         GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, coin_seg3_dl_red_tilt_left),
+         GEO_SWITCH_CASE(8, geo_switch_anim_state),
+         GEO_OPEN_NODE(),
+            GEO_DISPLAY_LIST(LAYER_OCCLUDE_SILHOUETTE_ALPHA, PennyCoinRed_SketchUp_mesh),
+         GEO_CLOSE_NODE(),
       GEO_CLOSE_NODE(),
    GEO_CLOSE_NODE(),
    GEO_END(),

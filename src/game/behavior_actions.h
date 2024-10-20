@@ -2,6 +2,7 @@
 #define BEHAVIOR_ACTIONS_H
 
 void spawn_mist_particles_variable(s32 count, s32 offsetY, f32 size);
+void spawn_money_particles_variable(s32 count, s32 offsetY, f32 size);
 void bhv_spawn_star_no_level_exit(u32 params);
 void bhv_door_rendering_loop(void);
 void spawn_triangle_break_particles(s16 numTris, s16 triModel, f32 triSize, s16 triAnimState);
@@ -240,6 +241,7 @@ void bhv_castle_floor_trap_init(void);
 void bhv_castle_floor_trap_loop(void);
 void bhv_floor_trap_in_castle_loop(void);
 void bhv_sparkle_spawn_loop(void);
+void bhv_money_spawn_loop(void);
 void bhv_scuttlebug_loop(void);
 void bhv_scuttlebug_spawn_loop(void);
 void bhv_whomp_loop(void);

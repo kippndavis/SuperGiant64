@@ -210,6 +210,8 @@ struct ParticleProperties sParticleTypes[] = {
     { PARTICLE_DIRT,                 ACTIVE_PARTICLE_DIRT,                 MODEL_NONE,                 bhvDirtParticleSpawner },
     { PARTICLE_MIST_CIRCLE,          ACTIVE_PARTICLE_MIST_CIRCLE,          MODEL_NONE,                 bhvMistCircParticleSpawner },
     { PARTICLE_TRIANGLE,             ACTIVE_PARTICLE_TRIANGLE,             MODEL_NONE,                 bhvTriangleParticleSpawner },
+    { PARTICLE_MONEY_ANIMATION,      ACTIVE_PARTICLE_MONEY_ANIMATION,      MODEL_MONEY_ANIMATION,      bhvMoneyParticleSpawner },
+    { PARTICLE_CENT_ANIMATION,       ACTIVE_PARTICLE_CENT_ANIMATION,       MODEL_CENT_ANIMATION,       bhvCentParticleSpawner },
     { PARTICLE_NONE, ACTIVE_PARTICLE_NONE, MODEL_NONE, NULL },
 };
 

@@ -31,7 +31,7 @@ s32 coin_step(s16 *collisionFlagsPtr) {
 
     if ((*collisionFlagsPtr & OBJ_COL_FLAG_GROUNDED)
         && !(*collisionFlagsPtr & OBJ_COL_FLAG_NO_Y_VEL)) {
-        cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);
+        cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_COIN_CLINK_FALL);
         return TRUE;
     }
 
@@ -46,7 +46,7 @@ void moving_coin_flicker(void) {
 }
 
 void coin_collected(void) {
-    spawn_object(o, MODEL_SPARKLES, bhvCoinSparklesSpawner);
+    spawn_object(o, MODEL_CENT_ANIMATION, bhvCoinSparklesSpawner);
     o->activeFlags = ACTIVE_FLAG_DEACTIVATED;
 }
 
@@ -60,6 +60,7 @@ void bhv_moving_yellow_coin_init(void) {
 
 void bhv_moving_yellow_coin_loop(void) {
     s16 collisionFlags;
+    o->oFaceAngleYaw += 0x650;
 
     switch (o->oAction) {
         case MOV_YCOIN_ACT_IDLE:
@@ -123,7 +124,7 @@ void bhv_moving_blue_coin_loop(void) {
             if (collisionFlags & OBJ_COL_FLAG_GROUNDED) {
                 o->oForwardVel += 25.0f;
                 if (!(collisionFlags & OBJ_COL_FLAG_NO_Y_VEL)) {
-                    cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);
+                    cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_COIN_CLINK_FALL);
                 }
             } else {
                 o->oForwardVel *= 0.98f;

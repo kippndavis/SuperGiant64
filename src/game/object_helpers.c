@@ -1732,6 +1732,10 @@ void spawn_mist_particles(void) {
     spawn_mist_particles_variable(0, 0, 46.0f);
 }
 
+void spawn_money_particles(void) {
+    spawn_money_particles_variable(0, 0, 46.0f);
+}
+
 void spawn_mist_particles_with_sound(u32 soundMagic) {
     spawn_mist_particles_variable(0, 0, 46.0f);
     create_sound_spawner(soundMagic);

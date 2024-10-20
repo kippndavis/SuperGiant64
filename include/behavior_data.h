@@ -269,6 +269,8 @@ extern const BehaviorScript bhvCastleFloorTrap[];
 extern const BehaviorScript bhvFloorTrapInCastle[];
 extern const BehaviorScript bhvTree[];
 extern const BehaviorScript bhvSparkle[];
+extern const BehaviorScript bhvMoney[];
+extern const BehaviorScript bhvMoneySpawn[];
 extern const BehaviorScript bhvSparkleSpawn[];
 extern const BehaviorScript bhvSparkleParticleSpawner[];
 extern const BehaviorScript bhvSomeGfx[];
@@ -533,5 +535,7 @@ extern const BehaviorScript bhvEndBirds1[];
 extern const BehaviorScript bhvEndBirds2[];
 extern const BehaviorScript bhvIntroScene[];
 extern const BehaviorScript bhvUnusedFakeStar[];
+extern const BehaviorScript bhvMoneyParticleSpawner[];
+extern const BehaviorScript bhvCentParticleSpawner[];
 
 #endif // BEHAVIOR_DATA_H

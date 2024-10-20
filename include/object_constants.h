@@ -134,6 +134,8 @@ enum ActiveParticleFlags {
     ACTIVE_PARTICLE_BREATH                     = (1 << 17), // 0x00020000
     ACTIVE_PARTICLE_V_STAR                     = (1 << 18), // 0x00040000
     ACTIVE_PARTICLE_TRIANGLE                   = (1 << 19), // 0x00080000
+    ACTIVE_PARTICLE_MONEY_ANIMATION            = (1 << 21),
+    ACTIVE_PARTICLE_CENT_ANIMATION             = (1 << 22),
 };
 
 /* oBehParams */

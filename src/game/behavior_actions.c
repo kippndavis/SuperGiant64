@@ -79,6 +79,21 @@ static struct SpawnParticlesInfo sMistParticles = {
     /* sizeRange:       */ 10.0f,
 };
 
+static struct SpawnParticlesInfo sMoneyParticles = {
+    /* behParam:        */ 2,
+    /* count:           */ 20,
+    /* model:           */ MODEL_MONEY_ANIMATION,
+    /* offsetY:         */ 0,
+    /* forwardVelBase:  */ 40,
+    /* forwardVelRange: */ 5,
+    /* velYBase:        */ 30,
+    /* velYRange:       */ 20,
+    /* gravity:         */ 252,
+    /* dragStrength:    */ 30,
+    /* sizeBase:        */ 330.0f,
+    /* sizeRange:       */ 10.0f,
+};
+
 // generate_wind_puffs/dust (something like that)
 void spawn_mist_particles_variable(s32 count, s32 offsetY, f32 size) {
     sMistParticles.sizeBase = size;
@@ -94,6 +109,22 @@ void spawn_mist_particles_variable(s32 count, s32 offsetY, f32 size) {
     }
 
     cur_obj_spawn_particles(&sMistParticles);
+}
+
+void spawn_money_particles_variable(s32 count, s32 offsetY, f32 size) {
+    sMoneyParticles.sizeBase = size;
+    sMoneyParticles.sizeRange = size / 20.0f;
+    sMoneyParticles.offsetY = offsetY;
+
+    if (count == 0) {
+        sMoneyParticles.count = 20;
+    } else if (count > 20) {
+        sMoneyParticles.count = count;
+    } else {
+        sMoneyParticles.count = 4;
+    }
+
+    cur_obj_spawn_particles(&sMoneyParticles);
 }
 
 #include "behaviors/sparkle_spawn_star.inc.c"

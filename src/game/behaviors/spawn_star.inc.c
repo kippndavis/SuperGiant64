@@ -36,6 +36,54 @@ void bhv_collect_star_loop(void) {
         obj_mark_for_deletion(o);
         o->oInteractStatus = INT_STATUS_NONE;
     }
+
+    // Only normal, non-transparent stars should have special behavior
+    u8 starId = GET_BPARAM1(o->oBehParams);
+    #ifdef GLOBAL_STAR_IDS
+        u8 currentLevelStarFlags = save_file_get_star_flags((gCurrSaveFileNum - 1), COURSE_NUM_TO_INDEX(starId / 7));
+        bool isStarCollected = currentLevelStarFlags & (1 << (starId % 7));
+    #else
+        u8 currentLevelStarFlags = save_file_get_star_flags((gCurrSaveFileNum - 1), COURSE_NUM_TO_INDEX(gCurrCourseNum));
+        u8 isStarCollected = currentLevelStarFlags & (1 << starId);
+    #endif
+
+    if (!isStarCollected) {
+    // Generate a random number between 0 and 99 (inclusive)
+        s32 randomNumber = random_u16() % 1000;
+
+        // 20% chance for the fairly common event (randomNumber < 20)
+        if (randomNumber <= 150) {
+            // Trigger the fairly common event
+            // Example: play a sound or increase star's rotation speed slightly
+            spawn_object(o, MODEL_NONE, bhvMoneySpawn);
+        }
+
+        // 1% chance for the rare event (randomNumber == 0)
+        if (randomNumber == 0) {
+            randomNumber = random_u16() % 6;
+            switch (randomNumber) {
+                case 0:
+                    play_sound(SOUND_GENERAL_CUSTOM_WHO_WANTS_SOME_DOUGH, o->header.gfx.cameraToObject);
+                    break;
+                case 1:
+                    play_sound(SOUND_GENERAL_CUSTOM_WHAT_ABOUT_ME, o->header.gfx.cameraToObject);
+                    break;
+                case 2:
+                    play_sound(SOUND_GENERAL_CUSTOM_SOMEBODY_GET_ME, o->header.gfx.cameraToObject);
+                    break;
+                case 3:
+                    play_sound(SOUND_GENERAL_CUSTOM_SOME_MONEY_OVER_HERE, o->header.gfx.cameraToObject);
+                    break;
+                case 4:
+                    play_sound(SOUND_GENERAL_CUSTOM_GET_SOME_OF_THIS, o->header.gfx.cameraToObject);
+                    break;
+                case 5:
+                    play_sound(SOUND_GENERAL_CUSTOM_EY_OVER_HERE, o->header.gfx.cameraToObject);
+                    break;
+            }
+        }
+    }
+
 }
 
 void bhv_star_spawn_init(void) {
@@ -76,7 +124,7 @@ void bhv_star_spawn_loop(void) {
             o->oStarSpawnVelY += o->oVelY;
             o->oPosY = o->oStarSpawnVelY + sins((o->oTimer * 0x8000) / 30) * 400.0f;
             o->oFaceAngleYaw += 0x1000;
-            spawn_object(o, MODEL_NONE, bhvSparkleSpawn);
+            spawn_object(o, MODEL_NONE, bhvMoneySpawn);
             cur_obj_play_sound_1(SOUND_ENV_STAR);
             if (o->oTimer == 29) {
                 o->oAction = SPAWN_STAR_ARC_CUTSCENE_ACT_BOUNCE;
@@ -94,7 +142,7 @@ void bhv_star_spawn_loop(void) {
                 o->oVelY = -10.0f;
             }
 
-            spawn_object(o, MODEL_NONE, bhvSparkleSpawn);
+            spawn_object(o, MODEL_NONE, bhvMoneySpawn);
             obj_move_xyz_using_fvel_and_yaw(o);
             o->oFaceAngleYaw = o->oFaceAngleYaw - o->oTimer * 0x10 + 0x1000;
             cur_obj_play_sound_1(SOUND_ENV_STAR);
@@ -119,11 +167,60 @@ void bhv_star_spawn_loop(void) {
                 obj_mark_for_deletion(o);
                 o->oInteractStatus = INT_STATUS_NONE;
             }
+
+            // Only normal, non-transparent stars should have special behavior
+            // This seems to work for only spawned red coins/secret stars
+            u8 starId = GET_BPARAM1(o->oBehParams);
+            #ifdef GLOBAL_STAR_IDS
+                u8 currentLevelStarFlags = save_file_get_star_flags((gCurrSaveFileNum - 1), COURSE_NUM_TO_INDEX(starId / 7));
+                bool isStarCollected = currentLevelStarFlags & (1 << (starId % 7));
+            #else
+                u8 currentLevelStarFlags = save_file_get_star_flags((gCurrSaveFileNum - 1), COURSE_NUM_TO_INDEX(gCurrCourseNum));
+                u8 isStarCollected = currentLevelStarFlags & (1 << starId);
+            #endif
+
+            if (!isStarCollected) {
+            // Generate a random number between 0 and 99 (inclusive)
+                s32 randomNumber = random_u16() % 1000;
+
+                // 20% chance for the fairly common event (randomNumber < 20)
+                if (randomNumber <= 150) {
+                    // Trigger the fairly common event
+                    // Example: play a sound or increase star's rotation speed slightly
+                    spawn_object(o, MODEL_NONE, bhvMoneySpawn);
+                }
+
+                // 1% chance for the rare event (randomNumber == 0)
+                if (randomNumber == 0) {
+                    randomNumber = random_u16() % 6;
+                    switch (randomNumber) {
+                        case 0:
+                            play_sound(SOUND_GENERAL_CUSTOM_WHO_WANTS_SOME_DOUGH, o->header.gfx.cameraToObject);
+                            break;
+                        case 1:
+                            play_sound(SOUND_GENERAL_CUSTOM_WHAT_ABOUT_ME, o->header.gfx.cameraToObject);
+                            break;
+                        case 2:
+                            play_sound(SOUND_GENERAL_CUSTOM_SOMEBODY_GET_ME, o->header.gfx.cameraToObject);
+                            break;
+                        case 3:
+                            play_sound(SOUND_GENERAL_CUSTOM_SOME_MONEY_OVER_HERE, o->header.gfx.cameraToObject);
+                            break;
+                        case 4:
+                            play_sound(SOUND_GENERAL_CUSTOM_GET_SOME_OF_THIS, o->header.gfx.cameraToObject);
+                            break;
+                        case 5:
+                            play_sound(SOUND_GENERAL_CUSTOM_EY_OVER_HERE, o->header.gfx.cameraToObject);
+                            break;
+                    }
+                }
+            }
             break;
-    }
+        }
 }
 
 struct Object *spawn_star(struct Object *starObj, f32 x, f32 y, f32 z) {
+    // Should add something here to fix stuff like the Toad stars
     starObj = spawn_object_abs_with_rot(o, 0, MODEL_STAR, bhvStarSpawnCoordinates, o->oPosX, o->oPosY, o->oPosZ, 0, 0, 0);
     starObj->oBehParams = o->oBehParams;
     vec3f_set(&starObj->oHomeVec, x, y, z);

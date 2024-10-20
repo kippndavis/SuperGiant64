@@ -48,6 +48,7 @@ void bhv_hidden_blue_coin_loop(void) {
             // Become tangible
             cur_obj_enable_rendering();
             cur_obj_become_tangible();
+            o->oFaceAngleYaw += 0x650;
 
             // After 200 frames of waiting and 20 2-frame blinks (for 240 frames total),
             // delete the object.
@@ -65,7 +66,7 @@ void bhv_hidden_blue_coin_loop(void) {
 
     // Delete the coin once collected
     if (o->oInteractStatus & INT_STATUS_INTERACTED) {
-        spawn_object(o, MODEL_SPARKLES, bhvCoinSparklesSpawner);
+        spawn_object(o, MODEL_CENT_ANIMATION, bhvCoinSparklesSpawner);
         obj_mark_for_deletion(o);
     }
 

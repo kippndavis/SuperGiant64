@@ -35,7 +35,7 @@ s16 sCoinArrowPositions[][2] = {
 s32 bhv_coin_sparkles_init(void) {
     if (o->oInteractStatus & INT_STATUS_INTERACTED
         && !(o->oInteractStatus & INT_STATUS_TOUCHED_BOB_OMB)) {
-        spawn_object(o, MODEL_SPARKLES, bhvCoinSparklesSpawner);
+        spawn_object(o, MODEL_CENT_ANIMATION, bhvCoinSparklesSpawner);
         obj_mark_for_deletion(o);
         return TRUE;
     }
@@ -71,11 +71,11 @@ void bhv_yellow_coin_init(void) {
 
 void bhv_yellow_coin_loop(void) {
     bhv_coin_sparkles_init();
-    o->oAnimState++;
+    o->oFaceAngleYaw += 0x650;  // Rotates the coin on Y-axis
 }
 
 void bhv_temp_coin_loop(void) {
-    o->oAnimState++;
+    o->oFaceAngleYaw += 0x650;
 
     if (cur_obj_wait_then_blink(200, 20)) {
         obj_mark_for_deletion(o);
@@ -87,7 +87,6 @@ void bhv_temp_coin_loop(void) {
 void bhv_coin_init(void) {
     o->oVelY = random_float() * 10.0f + 30 + o->oCoinBaseYVel;
     o->oForwardVel = random_float() * 10.0f;
-    o->oMoveAngleYaw = random_u16();
 
     cur_obj_set_behavior(bhvYellowCoin);
     obj_set_hitbox(o, &sYellowCoinHitbox);
@@ -98,6 +97,8 @@ void bhv_coin_loop(void) {
     cur_obj_update_floor_and_walls();
     cur_obj_if_hit_wall_bounce_away();
     cur_obj_move_standard(-62);
+
+    o->oFaceAngleYaw += 0x650;
 
     struct Surface *floor = o->oFloor;
 
@@ -145,7 +146,7 @@ void bhv_coin_loop(void) {
 
     if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
         if (o->oCoinBounceTimer < 5) {
-            cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);
+            cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_COIN_CLINK_FALL);
         }
         o->oCoinBounceTimer++;
     }
@@ -158,6 +159,8 @@ void bhv_coin_loop(void) {
 }
 
 void bhv_coin_formation_spawned_coin_loop(void) {
+
+    o->oFaceAngleYaw += 0x650;
     if (o->oTimer == 0) {
         cur_obj_set_behavior(bhvYellowCoin);
         obj_set_hitbox(o, &sYellowCoinHitbox);
@@ -266,8 +269,10 @@ void coin_inside_boo_act_dropped(void) {
     cur_obj_update_floor_and_walls();
     cur_obj_if_hit_wall_bounce_away();
 
+    o->oFaceAngleYaw += 0x650;
+
     if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
-        cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);
+        cur_obj_play_sound_2(SOUND_GENERAL_CUSTOM_COIN_CLINK_FALL);
     }
 
     if (o->oTimer > 90 || o->oMoveFlags & OBJ_MOVE_LANDED) {
@@ -289,6 +294,8 @@ void coin_inside_boo_act_dropped(void) {
 }
 
 void coin_inside_boo_act_carried(void) {
+
+    o->oFaceAngleYaw += 0x650;
     struct Object *parent = o->parentObj;
 
     cur_obj_become_intangible();
@@ -298,6 +305,7 @@ void coin_inside_boo_act_carried(void) {
     }
 
     obj_copy_pos(o, parent);
+    o->oPosY -= 15.0f;
 
     if (parent->oBooDeathStatus == BOO_DEATH_STATUS_DYING) {
         o->oAction = COIN_INSIDE_BOO_ACT_DROPPED;
@@ -322,7 +330,11 @@ void bhv_coin_sparkles_loop(void) {
 }
 
 void bhv_golden_coin_sparkles_loop(void) {
-    struct Object *sparkleObj = spawn_object(o, MODEL_SPARKLES, bhvCoinSparkles);
-    sparkleObj->oPosX += random_float() * 30.0f - 15.0f;
-    sparkleObj->oPosZ += random_float() * 30.0f - 15.0f;
+    struct Object *sparkleObj = spawn_object(o, MODEL_CENT_ANIMATION, bhvCoinSparkles);
+    
+    // Increase the random range for X, Y, and Z positions
+    sparkleObj->oPosX += random_float() * 70.0f - 35.0f;
+    sparkleObj->oPosY += random_float() * 50.0f - 25.0f;
+    sparkleObj->oPosZ += random_float() * 70.0f - 35.0f;
+
 }
